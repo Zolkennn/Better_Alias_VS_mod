@@ -1,0 +1,6 @@
+{
+    "hello": "hello world!",
+    "setalias": "Ton nouveau noms est: ",
+    "removealias": "Ton nouveau noms est: ",
+    "joinMessage": "Ton noms courant est: "
+}

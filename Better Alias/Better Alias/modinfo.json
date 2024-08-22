@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "side": "Server",
+    "modid": "betteralias",
+    "name": "Better Alias",
+    "authors": [
+        "Zolkenn"
+    ],
+    "description": "Add alias command",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}
