@@ -1,6 +1,6 @@
 # Vintage Story Mod: Player Alias
 
-This mod allows players to set a custom alias that will be displayed in the server console and chat, instead of their actual name. The alias will persist even if the player disconnects and reconnects to the server.
+This mod allows players to set a custom alias that will be displayed over there head, instead of their actual name. The alias will persist even if the player disconnects and reconnects to the server.
 Features
 
     Server-side mod
