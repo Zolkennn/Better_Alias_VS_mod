@@ -4,7 +4,7 @@ This mod allows players to set a custom alias that will be displayed over there 
 Features
 
     Server-side mod
-    Two commands added: /playeralias set_alias "new_name" and /playeralias remove_alias
+    Two commands added: /playeralias set "new_name" and /playeralias rm
     Players keep their alias when reconnecting
 
 Installation
@@ -17,13 +17,15 @@ Installation
 To set an alias, use the following command:
 
 ```Command
-/playeralias set_alias "new_name"
+/playeralias set "new_alias" [Player_Name]
 ```
 
 Replace new_name with the desired alias.
 
+[Player_Name] is optional and need commandplayer privilige
+
 To remove the alias, use the following command:
 
 ```Command
-/playeralias remove_alias
+/playeralias rm [Player_Name]
 ```
