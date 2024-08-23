@@ -1,6 +1,10 @@
 {
     "hello": "hello world!",
-    "setalias": "Ton nouveau noms est: ",
-    "removealias": "Ton nouveau noms est: ",
-    "joinMessage": "Ton noms courant est: "
+    "presetalias": "L'alias de ",
+    "setalias": " est devenu ",
+    "removealias": "Ton nouveau nom est: ",
+    "joinMessage": "Ton nom courant est: ",
+    "invalidPlayerName": "Le nom du joueur renseigné est invalide",
+    "Insufficient Privileges to set another players alias": "Vous n'avez pas assez de privilèges pour renommer l'alias d'un autre joueur",
+    "Insufficient Privileges to remove another players alias": "Vous n'avez pas assez de privilèges pour enlever l'alias d'un autre joueur"
 }

@@ -1,4 +1,5 @@
-﻿using Vintagestory.API.Server;
+﻿using System.Linq;
+using Vintagestory.API.Server;
 using Vintagestory.API.Config;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.CommandAbbr;
@@ -19,39 +20,58 @@ public class Better_AliasModSystem : ModSystem
         this._sapi = api;
         _sapi.Event.PlayerNowPlaying += EventPlayerJoin;
         
-        _sapi.ChatCommands.GetOrCreate("playeralias")
+        _sapi.ChatCommands.GetOrCreate("alias")
             .RequiresPrivilege(Privilege.chat)
             .RequiresPlayer()
-            .BeginSub("set_alias")
-            .WithDescription("Sets the alias to your playername")
-            .WithArgs(new StringArgParser("newAlias", true))
-            .HandleWith(SetAlias);
-
-        _sapi.ChatCommands.GetOrCreate("playeralias")
-            .RequiresPrivilege(Privilege.chat)
-            .RequiresPlayer()
-            .BeginSub("remove_alias")
-            .WithDescription("Resets the players name back to the default")
-            .HandleWith(RemoveAlias);
+            .WithDescription("Modify player aliases")
+            
+            .BeginSub("set")
+            .WithAlias("change")
+            .WithAlias("-s")
+            .WithDescription("Change PlayerName alias") //todo 
+            .WithArgs(_sapi.ChatCommands.Parsers.OptionalWord("New_alias"), new OnlinePlayerArgParser("PlayerName", api, false))
+            .HandleWith(SetPlayerAlias)
+            .EndSubCommand()
+            
+            .BeginSub("remove")
+            .WithAlias("rm")
+            .WithAlias("-r")
+            .WithDescription("Remove the players alias")
+            .WithArgs(new OnlinePlayerArgParser("PlayerName", api, false)) //todo
+            .HandleWith(RemoveAlias)
+            .EndSubCommand()
+            
+            .Validate();
+       
     }
-
-    private TextCommandResult SetAlias(TextCommandCallingArgs args)
+    
+    private TextCommandResult SetPlayerAlias(TextCommandCallingArgs args)
     {
         var newName = args[0] as string;
-        var player = args.Caller.Player as IServerPlayer;
+        var player = (args[1] ?? args.Caller.Player) as IServerPlayer;
+        if (player != args.Caller.Player && !args.Caller.Player!.Privileges.Contains(Privilege.commandplayer))
+        {
+            return TextCommandResult.Error(Lang.Get("betteralias:Insufficient Privileges to set another players alias"));
+        }
         var nametagAttribute = player?.Entity.WatchedAttributes.GetTreeAttribute("nametag");
+        
         nametagAttribute?.SetString("name", newName);
         nametagAttribute?.SetString("nameSave", newName);
         player?.Entity.WatchedAttributes.MarkPathDirty("nametag");
         
-        return TextCommandResult.Success(Lang.Get("betteralias:setalias") + newName);
-        
+        return TextCommandResult.Success(Lang.Get("betteralias:presetalias") + player?.PlayerName + Lang.Get("betteralias:setalias") + newName);
     }
-    
+
     private TextCommandResult RemoveAlias(TextCommandCallingArgs args)
     {
-        var player = args.Caller.Player as IServerPlayer;
+        var player = (args[0] ?? args.Caller.Player) as IServerPlayer;
+        if (player != args.Caller.Player && !args.Caller.Player!.Privileges.Contains(Privilege.commandplayer))
+        {
+            return TextCommandResult.Error(Lang.Get("betteralias:Insufficient Privileges to remove another players alias"));
+        }
         var nameTagAttribute = player?.Entity.WatchedAttributes.GetTreeAttribute("nametag");
+        
+        //todo remove dupe
         nameTagAttribute?.SetString("name", player.PlayerName);
         nameTagAttribute?.SetString("nameSave", player.Entity.GetName());
         player?.Entity.WatchedAttributes.MarkPathDirty("nametag");
