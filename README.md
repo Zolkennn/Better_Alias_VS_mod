@@ -20,8 +20,6 @@ To set an alias, use the following command:
 /playeralias set "new_alias" [Player_Name]
 ```
 
-Replace new_name with the desired alias.
-
 [Player_Name] is optional and need commandplayer privilige when selecting anyone beside you
 
 To remove the alias, use the following command:
