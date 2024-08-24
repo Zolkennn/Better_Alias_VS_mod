@@ -22,7 +22,7 @@ To set an alias, use the following command:
 
 Replace new_name with the desired alias.
 
-[Player_Name] is optional and need commandplayer privilige
+[Player_Name] is optional and need commandplayer privilige when selecting anyone beside you
 
 To remove the alias, use the following command:
 
