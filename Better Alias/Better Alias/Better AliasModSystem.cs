@@ -28,7 +28,7 @@ public class Better_AliasModSystem : ModSystem
             .BeginSub("set")
             .WithAlias("change")
             .WithAlias("-s")
-            .WithDescription("Change PlayerName alias") //todo 
+            .WithDescription(Lang.Get("betteralias:setdesc")) //todo 
             .WithArgs(_sapi.ChatCommands.Parsers.OptionalWord("New_alias"), new OnlinePlayerArgParser("PlayerName", api, false))
             .HandleWith(SetPlayerAlias)
             .EndSubCommand()
@@ -36,7 +36,7 @@ public class Better_AliasModSystem : ModSystem
             .BeginSub("remove")
             .WithAlias("rm")
             .WithAlias("-r")
-            .WithDescription("Remove the players alias")
+            .WithDescription(Lang.Get("betteralias:rmdesc"))
             .WithArgs(new OnlinePlayerArgParser("PlayerName", api, false)) //todo
             .HandleWith(RemoveAlias)
             .EndSubCommand()

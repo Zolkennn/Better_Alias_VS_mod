@@ -6,5 +6,7 @@
     "joinMessage": "Ton nom courant est: ",
     "invalidPlayerName": "Le nom du joueur renseigné est invalide",
     "Insufficient Privileges to set another players alias": "Vous n'avez pas assez de privilèges pour renommer l'alias d'un autre joueur",
-    "Insufficient Privileges to remove another players alias": "Vous n'avez pas assez de privilèges pour enlever l'alias d'un autre joueur"
+    "Insufficient Privileges to remove another players alias": "Vous n'avez pas assez de privilèges pour enlever l'alias d'un autre joueur",
+    "setdesc": "Change l'alias du PlayerName ",
+    "rmdesc": "Remove l'alias du PlayerName "
 }
