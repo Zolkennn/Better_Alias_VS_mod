@@ -1,7 +1,7 @@
 {
     "hello": "hello world!",
     "presetalias": "",
-    "setalias": " alias change to ",
+    "setalias": " alias changed to ",
     "removealias": "Your name is now: ",
     "joinMessage": "Your current name is: ",
     "invalidPlayerName": "Player name supplied is invalid",

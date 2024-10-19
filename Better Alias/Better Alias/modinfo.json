@@ -6,8 +6,8 @@
     "authors": [
         "Zolkenn"
     ],
-    "description": "Add alias command",
-    "version": "1.2.0",
+    "description": "Add /alias command",
+    "version": "1.3.0",
     "dependencies": {
         "game": ""
     }

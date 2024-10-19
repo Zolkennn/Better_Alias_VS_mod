@@ -17,7 +17,7 @@ public class Better_AliasModSystem : ModSystem
     
     public override void StartServerSide(ICoreServerAPI api)
     {
-        this._sapi = api;
+        _sapi = api;
         _sapi.Event.PlayerNowPlaying += EventPlayerJoin;
         
         _sapi.ChatCommands.GetOrCreate("alias")
@@ -28,7 +28,7 @@ public class Better_AliasModSystem : ModSystem
             .BeginSub("set")
             .WithAlias("change")
             .WithAlias("-s")
-            .WithDescription(Lang.Get("betteralias:setdesc")) //todo 
+            .WithDescription(Lang.Get("betteralias:setdesc"))
             .WithArgs(_sapi.ChatCommands.Parsers.OptionalWord("New_alias"), new OnlinePlayerArgParser("PlayerName", api, false))
             .HandleWith(SetPlayerAlias)
             .EndSubCommand()
