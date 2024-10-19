@@ -1,12 +1,11 @@
 {
-    "hello": "hello world!",
     "presetalias": "",
     "setalias": " alias changed to ",
     "removealias": "Your name is now: ",
     "joinMessage": "Your current name is: ",
-    "invalidPlayerName": "Player name supplied is invalid",
-    "Insufficient Privileges to set another players alias": "You have insufficient privileges to set another players alias",
-    "Insufficient Privileges to remove another players alias": "You have insufficient privileges to remove another players alias",
-    "setdesc": "Change PlayerName alias ",
-    "rmdesc": "Remove the players alias "
+    "invalidPlayerName": "the PlayerName supplied is invalid",
+    "Insufficient Privileges to set another players alias": "You have insufficient privileges to set another player alias",
+    "Insufficient Privileges to remove another players alias": "You have insufficient privileges to remove another player alias",
+    "setdesc": "Change PlayerName alias",
+    "rmdesc": "Remove PlayerName alias"
 }
